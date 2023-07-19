@@ -2,8 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
   font-family: "Poppins", sans-serif;
   background-color: #141414;
   color: white;
+}
+
+/* Utilities */
+.space-font {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Navbar */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #f0fdfa;
+  left: 50%;
+  bottom: 0;
+  transform: translatex(-50%);
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Slider  */
+.slider {
+  height: calc(100vh - 10rem);
+  width: 500vw;
+  display: flex;
+  transition: 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100vw;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* slide btn  */
+.slide-btn {
+  position: relative;
+}
+
+.slide-btn::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eab308;
+  border-radius: 9999px;
+  width: 20%;
+  transition: 0.2s ease;
+}
+
+.slide-btn:hover::before {
+  width: 100%;
 }

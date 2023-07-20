@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Navbar() {
   return (
-    <div className="  py-4 px-32 flex items-center justify-between border-b border-yellow-50/10 ">
+    <div className="  py-4 px-32 flex items-center justify-between border-b border-yellow-50/10  ">
       <div className="logo text-5xl font-bold cursor-pointer text-yellow-600 hover:text-yellow-500 duration-300 ">
         <Link href="/">SJE</Link>
       </div>
@@ -18,6 +18,9 @@ function Navbar() {
         </li>
         <li className="cursor-pointer text-yellow-50 hover:text-yellow-500 duration-300">
           <Link href="/team">Team</Link>
+        </li>
+        <li className="cursor-pointer text-yellow-50 hover:text-yellow-500 duration-300">
+          <Link href="/ourclients">Clients</Link>
         </li>
         <li className="cursor-pointer text-yellow-50 hover:text-yellow-500 duration-300">
           <Link href="/contact">Contact</Link>

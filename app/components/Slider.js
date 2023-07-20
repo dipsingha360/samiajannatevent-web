@@ -9,15 +9,15 @@ const datas = [
     id: 1,
     src: "https://cdn.pixabay.com/photo/2016/03/27/18/49/light-1283577_1280.jpg",
     headline: "Event Management One-Step Solution",
-    body: "Are you an aspiring photographer looking to take your skills to the next level? Our DSLR cameras offer advanced features and high-quality image sensors to help you capture stunning photos. From landscape shots to portraits, these cameras are perfect for capturing all types of subjects.",
-    btn: "Contact now",
+    body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
+    btn: "Contact us",
   },
   {
     id: 2,
     src: "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
     headline: "Update Your Evenet Exprience",
-    body: "Experience the latest in home entertainment with our selection of TVs. From sleek and modern designs to advanced features like 4K resolution and smart capabilities, our TVs will bring your favorite movies, TV shows, and streaming content to life.",
-    btn: "Explore now",
+    body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
+    btn: "Explore us",
   },
 ];
 
@@ -38,7 +38,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="frame relative">
+    <div className="frame relative h-screen">
       <div
         className="slider "
         style={{ transform: `translateX(-${100 * currentSlide}vw)` }}
@@ -49,10 +49,10 @@ const Slider = () => {
       </div>
 
       {/* slider buttons */}
-      <div className="btns absolute  z-[1] text-teal-50 text-2xl flex gap-10 bottom-20 w-screen justify-center">
+      <div className="btns absolute  z-[1] text-teal-50 text-2xl flex gap-10 bottom-48 w-screen justify-center">
         <button
           onClick={prevSlide}
-          className="prev-btn h-10 w-10 text-4xl hover:bg-yellow-100/70 hover:text-yellow-900 duration-300 bg-yellow-300/20 backdrop-blur-xl flex justify-center items-center rounded-full border border-yellow-100"
+          className="prev-btn text-4xl hover:bg-slate-300/30  bg-slate-300/20 backdrop-blur-xl flex justify-center items-center rounded-full border border-slate-100"
         >
           <span>
             <BsArrowLeftShort />
@@ -60,7 +60,7 @@ const Slider = () => {
         </button>
         <button
           onClick={nextSlide}
-          className="next-btn h-10 w-10 text-4xl hover:bg-yellow-100/70 hover:text-yellow-900 duration-300 bg-yellow-300/20 backdrop-blur-xl flex justify-center items-center rounded-full border border-yellow-100"
+          className="next-btn text-4xl hover:bg-slate-300/30  bg-slate-300/20 backdrop-blur-xl flex justify-center items-center rounded-full border border-slate-100"
         >
           <span>
             <BsArrowRightShort />

@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 
 import { useState } from "react";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
@@ -7,14 +8,14 @@ import Slide from "./Slide";
 const datas = [
   {
     id: 1,
-    src: "https://cdn.pixabay.com/photo/2016/03/27/18/49/light-1283577_1280.jpg",
-    headline: "Event Management One-Step Solution",
+    src: "https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    headline: "Event Management Solution",
     body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
     btn: "Contact us",
   },
   {
     id: 2,
-    src: "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
+    src: "https://images.unsplash.com/photo-1545150665-c72a8f0cf311?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     headline: "Update Your Evenet Exprience",
     body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
     btn: "Explore us",
@@ -38,7 +39,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="frame relative h-screen">
+    <div className="frame relative">
       <div
         className="slider "
         style={{ transform: `translateX(-${100 * currentSlide}vw)` }}
@@ -49,7 +50,7 @@ const Slider = () => {
       </div>
 
       {/* slider buttons */}
-      <div className="btns absolute  z-[1] text-teal-50 text-2xl flex gap-10 bottom-48 w-screen justify-center">
+      <div className="btns absolute  z-[1] text-teal-50 text-2xl flex gap-10 bottom-40 w-screen justify-center opacity-70">
         <button
           onClick={prevSlide}
           className="prev-btn text-4xl hover:bg-slate-300/30  bg-slate-300/20 backdrop-blur-xl flex justify-center items-center rounded-full border border-slate-100"
@@ -71,4 +72,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default dynamic(() => Promise.resolve(Slider), { ssr: false });

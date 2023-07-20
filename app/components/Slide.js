@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 const Slide = ({ data }) => {
   return (
     <div className="slide" style={{ backgroundImage: `url(${data.src})` }}>
-      <div className="slide-text px-32 flex flex-col items-start  justify-center h-full gap-5  text-teal-50">
-        <h1 className=" text-7xl font-bold  space-font w-4/5">
+      <div className="slide-text container max-w-[1280px] mx-auto flex flex-col items-center justify-center h-full gap-5  text-teal-50">
+        <h1 className="text-4xl sm:px-2 md:px-0 md:text-7xl font-bold text-center ">
           {data.headline}
         </h1>
-        <p className="w-3/5 ">{data.body}</p>
+        <p className="w-3/5 sm:font-light sm:text-sm md:text-lg text-center ">
+          {data.body}
+        </p>
         <Link
           href={data.id === 1 ? "/contact" : "/services"}
           className="slide-btn uppercase border border-teal-50 h-14 w-72 text-teal-50  font-medium mt-5 rounded-full"
@@ -23,4 +26,4 @@ const Slide = ({ data }) => {
   );
 };
 
-export default Slide;
+export default dynamic(() => Promise.resolve(Slide), { ssr: false });

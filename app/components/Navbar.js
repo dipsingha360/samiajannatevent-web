@@ -1,8 +1,10 @@
+"use client";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 function Navbar() {
   return (
-    <div className="  py-4 px-32 flex items-center justify-between border-b border-yellow-50/10  ">
+    <div className="container max-w-[1280px] mx-auto  py-4 flex items-center justify-between border-b border-yellow-50/10 backdrop-blur-md ">
       <div className="logo text-5xl font-bold cursor-pointer text-yellow-600 hover:text-yellow-500 duration-300 ">
         <Link href="/">SJE</Link>
       </div>
@@ -30,4 +32,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false });

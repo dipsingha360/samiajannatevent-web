@@ -1,4 +1,6 @@
+"use clients";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 function Footer() {
   return (
@@ -17,4 +19,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default dynamic(() => Promise.resolve(Footer), { ssr: false });

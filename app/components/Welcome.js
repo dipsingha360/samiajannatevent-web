@@ -6,11 +6,11 @@ import Image from "next/image";
 
 function Welcome() {
   return (
-    <div className=" py-16 px-4">
+    <div className="my-20 ">
       <div className="max-w-[1280px] mx-auto grid gap-12 sm:grid-cols-2 ">
         {/* <Image src="/public/welcome1.jpg" width={1000} height={1000} alt="/" /> */}
         <img
-          className="w-[700px] h-[700px] object-cover mx-auto py-4"
+          className="w-[550px] h-[550px] object-cover  py-4"
           src="https://marketplace.canva.com/EAFGsiaSoyA/2/0/1131w/canva-black-gold-with-balloons-and-confetti-happy-birthday-party-poster-CppRaBB3fNg.jpg"
           alt="/"
         />
@@ -36,7 +36,7 @@ function Welcome() {
               ⭐ Performing Arts & Music Festivals
             </p>
           </div>
-          <button className="btn bg-yellow-600 w-[150px] rounded-md mx-auto sm:mx-0 py-2 mt-4 font-medium text-white hover:bg-yellow-500 duration-300">
+          <button className="btn bg-yellow-500 px-14 rounded-md mx-auto sm:mx-0 py-2 mt-4 font-medium text-white hover:bg-yellow-400 duration-300">
             <Link href="/services">Explore</Link>
           </button>
         </div>

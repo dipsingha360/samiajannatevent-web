@@ -9,15 +9,15 @@ const datas = [
   {
     id: 1,
     src: "https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    headline: "Event Management Solution",
-    body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
+    headline: "Make Your Event Success",
+    body: "We are a professional event management company that can handle any type of event, from planning to execution.",
     btn: "Contact us",
   },
   {
     id: 2,
     src: "https://images.unsplash.com/photo-1545150665-c72a8f0cf311?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    headline: "Update Your Evenet Exprience",
-    body: "Samia Jannat Event is a all in one solution all over the UAE. We provide saverial services.",
+    headline: "Spice Up Your Event",
+    body: "We have a variety of entertainment options for your parties and events, from live music and DJs to comedians and magicians.",
     btn: "Explore us",
   },
 ];

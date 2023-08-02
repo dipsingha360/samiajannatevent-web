@@ -15,7 +15,7 @@ function Footer() {
           <h1 className="w-full text-2xl  lg:text-3xl font-bold text-yellow-600">
             Samia Jannat Event Organizers
           </h1>
-          <p className="py-4 text-sm w-auto lg:text-base tracking-wide text-yellow-50">
+          <p className="py-4 text-sm font-light w-auto lg:text-base tracking-wide text-yellow-50">
             A one-stop destination for all your event planning and management
             needs. Whether you want to celebrate a birthday, anniversary,
             graduation, or any other special occasion, we have the expertise and
@@ -36,13 +36,13 @@ function Footer() {
               Services
             </h1>
             <ul>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate  ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate  ">
                 Events Organizing & Managing
               </li>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Parties & Events Filming
               </li>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Entertainments Services & Parties
               </li>
               <Link
@@ -59,13 +59,13 @@ function Footer() {
               Clients
             </h1>
             <ul>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Shangri-La hotel
               </li>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Hyatt Regencyy
               </li>
-              <li className="py-2 text-sm  tracking-wider overflow-hidden truncate ">
+              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Grand Hyatt
               </li>
               <Link

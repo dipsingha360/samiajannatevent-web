@@ -6,8 +6,8 @@ function WhyChoseUs() {
     <div className="my-20  bg-yellow-500">
       <div className="max-w-[1280px] mx-auto grid gap-12 px-4 lg:px-0 sm:grid-cols-2 ">
         <img
-          className="w-[550px] h-[550px] object-cover  py-4"
-          src="https://st4.depositphotos.com/14431644/21549/i/450/depositphotos_215493532-stock-photo-word-writing-text-why-choose.jpg"
+          className="w-[550px] h-[550px] object-cover  py-14"
+          src="https://www.seekpng.com/png/full/402-4023434_why-choose-us-choose-us-clip-art.png"
           alt="/"
         />
         <div className="flex flex-col gap-3 justify-center items-start">
@@ -16,28 +16,26 @@ function WhyChoseUs() {
           </h1>
           <div className="services flex flex-col gap-4 md:text-lg font-light">
             <div>
-              <p className="text-yellow-50 bg-yellow-600 px-3 rounded-lg py-2 text-2xl font-bold uppercase ">
-                Innovations
-              </p>
-              <p className="text-yellow-950/80 font-medium">
+              <p className="text-xl font-bold text-yellow-950">Innovations</p>
+              <p className="text-base font-normal text-yellow-950/80">
                 We are an event management company that brings innovation and
                 creativity to every event.
               </p>
             </div>
             <div>
-              <p className="text-yellow-50 bg-yellow-600 px-3 rounded-lg py-2 text-2xl font-bold uppercase ">
+              <p className="text-xl font-bold text-yellow-950">
                 Passionate Approach
               </p>
-              <p className="text-yellow-950/80 font-medium">
+              <p className="text-base font-normal text-yellow-950/80">
                 We work with passion to deliver the best results for every
                 event.
               </p>
             </div>
             <div>
-              <p className="text-yellow-50 bg-yellow-600 px-3 rounded-lg py-2 text-2xl font-bold uppercase ">
+              <p className="text-xl font-bold text-yellow-950">
                 Transparent Business Model
               </p>
-              <p className="text-yellow-950/80 font-medium">
+              <p className="text-base font-normal text-yellow-950/80">
                 Our transparency in business set us apart from other event
                 management companies.
               </p>

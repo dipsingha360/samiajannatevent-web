@@ -53,7 +53,7 @@ function Slider2() {
         /> */}
 
         <button className="btn bg-yellow-500 px-14 rounded-md mx-auto sm:mx-0 py-2 mt-4 font-medium text-yellow-950 hover:bg-yellow-400 duration-300">
-          <Link href="/services">Read more</Link>
+          <Link href="/services">Explore</Link>
         </button>
       </div>
     </div>

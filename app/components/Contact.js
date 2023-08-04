@@ -49,7 +49,7 @@ export default function Contact() {
           📞 +8801533734731
         </p>
         <p className="text-base md:text-2xl text-yellow-50 ">
-          ✉️ info@samiajannatevent.com
+          ✉️ samiajannatevent@gmail.com
         </p>
         <p className="text-base md:text-2xl text-yellow-50 ">
           📍 29/3 dubai highway road 50E/D, demo state, UAE

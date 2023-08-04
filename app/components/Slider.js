@@ -39,7 +39,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="frame relative">
+    <div className="frame">
       <div
         className="slider "
         style={{ transform: `translateX(-${100 * currentSlide}vw)` }}

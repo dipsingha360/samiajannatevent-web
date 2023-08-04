@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 const Slide = ({ data }) => {
   return (
@@ -26,4 +25,4 @@ const Slide = ({ data }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Slide), { ssr: false });
+export default Slide;

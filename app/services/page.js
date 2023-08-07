@@ -48,7 +48,7 @@ const serviceData = [
   },
   {
     id: 6,
-    serviceTitle: "Folklore Dances Performance",
+    serviceTitle: "Sout Asia Folklore Dances Performance",
     serviceSubtitle:
       "This service showcases the rich and diverse culture of UAE through folklore dances.",
     serviceImg:
@@ -112,13 +112,16 @@ function Service() {
               className=" img w-80 h-80 p-3 rounded-3xl object-cover"
             />
             <div className="text-content px-3">
-              <h2 className="text-lg font-semibold text-yellow-950">
+              <h2 className="text-lg font-semibold text-yellow-950 truncate w-64">
                 {service.serviceTitle}
               </h2>
-              <p className="text-base font-normal text-yellow-950/80">
+              <p className="text-base font-normal text-yellow-950/80 w-full h-32">
                 {service.serviceSubtitle}
               </p>
             </div>
+            <button className="mt-5 bg-yellow-950 px-20 py-2 rounded-lg hover:bg-yellow-900">
+              Details
+            </button>
           </div>
         ))}
       </div>

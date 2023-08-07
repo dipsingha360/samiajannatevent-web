@@ -24,7 +24,10 @@ const datas = [
 
 function Slider2() {
   return (
-    <div className="slide" style={{ backgroundImage: `url(${src})` }}>
+    <div
+      className="slide bg-center bg-cover bg-blend-overlay bg-black/20 bg-fixed"
+      style={{ backgroundImage: `url(${src})` }}
+    >
       <div className="slide-text container max-w-[1280px] h-screen mx-auto flex flex-col items-center justify-center gap-5  text-teal-50">
         <h1 className="text-4xl sm:px-2 md:px-0 md:text-7xl font-bold text-center ">
           Make Your Event Success

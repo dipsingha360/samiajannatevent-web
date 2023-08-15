@@ -15,7 +15,10 @@ function Navbar() {
         className="logo text-5xl font-bold cursor-pointer text-yellow-600 hover:text-yellow-500 duration-300 "
         href="/"
       >
-        <img src="https://i.postimg.cc/kGNBpycz/logo2.png.png" alt="SJE" />
+        <img
+          src="https://i.postimg.cc/VLn7tfpN/samiajannatevent-logo-2.png"
+          alt="SJEO"
+        />
       </Link>
 
       <ul className=" hidden sm:flex items-center gap-8">

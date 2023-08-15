@@ -9,7 +9,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-export default function Contact() {
+export default function ContactUs() {
   const contactRef1 = useRef(null);
   const contactRef2 = useRef(null);
   const contactRef3 = useRef(null);
@@ -48,9 +48,9 @@ export default function Contact() {
       className="max-w-[1280px] mx-auto my-20 px-4 lg:px-0 md:flex gap-10 items-start justify-between"
       id="contact"
     >
-      <div className="contact-left flex flex-col items-start text-left justify-start gap-5 md:gap-10">
+      <div className="contact-left flex flex-col items-start text-left justify-start gap-5 md:gap-10 mb-5 md:mb-0">
         <h1 className="text-4xl font-bold uppercase text-yellow-500">
-          Contact us
+          Notify us
         </h1>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
           <FaPhoneAlt /> +971 50 656 1669

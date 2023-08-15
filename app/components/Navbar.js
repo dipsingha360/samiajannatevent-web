@@ -51,9 +51,10 @@ function Navbar() {
             : "fixed left-[-100%] ease-in-out h-screen duration-300"
         }
       >
-        <h1 className="w-full text-6xl  font-semi-bold  text-yellow-600 hover:text-yellow-500 duration-300 m-4">
-          SJEO
-        </h1>
+        <img
+          src="https://i.postimg.cc/VLn7tfpN/samiajannatevent-logo-2.png"
+          alt="SJEO"
+        />
 
         <ul className="p-4">
           <li className="p-4 border-b border-gray-600/50 cursor-pointer text-yellow-50 hover:text-yellow-500 duration-300">

@@ -1,4 +1,4 @@
-import Contact from "./components/Contact";
+import ContactUs from "./components/ContactUs";
 import Description from "./components/Description";
 import Slider from "./components/Slider";
 import Slider2 from "./components/Slider2";
@@ -15,7 +15,7 @@ export default function Home() {
       <Description />
       <WhatWeDo />
       <WhyChoseUs />
-      <Contact />
+      <ContactUs />
     </>
   );
 }

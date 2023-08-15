@@ -5,7 +5,7 @@ function Team() {
     <section className="text-center mt-28 lg:text-6xl text-4xl font-medium lg:h-screen">
       <h1>Team</h1>
 
-      <div className="about-main flex flex-col md:flex-row items-center justify-center mt-10">
+      <div className="about-main flex flex-col md:flex-row items-center justify-center mt-10 px-4">
         <div className="about-left w-[50%] md:text-start">
           <h2 className="mb-4 lg:text-3xl text-2xl font-medium text-yellow-500">
             Samia Jannat Event Organizers

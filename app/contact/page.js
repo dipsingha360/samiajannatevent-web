@@ -13,6 +13,7 @@ function Contact() {
       </div>
     </section>
   );
+  r;
 }
 
 export default Contact;

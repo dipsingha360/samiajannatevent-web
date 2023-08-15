@@ -2,6 +2,13 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 
+import {
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
 export default function Contact() {
   const contactRef1 = useRef(null);
   const contactRef2 = useRef(null);
@@ -45,14 +52,18 @@ export default function Contact() {
         <h1 className="text-4xl font-bold uppercase text-yellow-500">
           Contact us
         </h1>
-        <p className="text-base md:text-2xl text-yellow-50 ">
-          📞 +8801533734731
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
+          <FaPhoneAlt /> +971 50 656 1669
         </p>
-        <p className="text-base md:text-2xl text-yellow-50 ">
-          ✉️ samiajannatevent@gmail.com
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
+          <FaWhatsapp /> +971 54 517 6464
         </p>
-        <p className="text-base md:text-2xl text-yellow-50 ">
-          📍 29/3 dubai highway road 50E/D, demo state, UAE
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
+          <FaEnvelope /> samiajannatevent@gmail.com
+        </p>
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
+          <FaMapMarkerAlt /> 4th Floor 413, Adel Ahmed Al Wahedi Building, Al
+          Murar, Deira, Dubai-U.A.E
         </p>
       </div>
       <form onSubmit={sendEmail} className="flex flex-col gap-5" ref={formRef}>

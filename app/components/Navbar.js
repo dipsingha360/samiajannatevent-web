@@ -11,9 +11,13 @@ function Navbar() {
 
   return (
     <div className="w-full fixed py-4 px-10 lg:px-10 flex items-center justify-between border-b-2 border-yellow-50/10 backdrop-blur-lg">
-      <div className="logo text-5xl font-bold cursor-pointer text-yellow-600 hover:text-yellow-500 duration-300 ">
-        <Link href="/">SJE</Link>
-      </div>
+      <Link
+        className="logo text-5xl font-bold cursor-pointer text-yellow-600 hover:text-yellow-500 duration-300 "
+        href="/"
+      >
+        <img src="https://i.postimg.cc/kGNBpycz/logo2.png.png" alt="SJE" />
+      </Link>
+
       <ul className=" hidden sm:flex items-center gap-8">
         <li className="cursor-pointer text-yellow-50 hover:text-yellow-500 duration-300">
           <Link href="/">Home</Link>

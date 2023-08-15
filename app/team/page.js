@@ -2,7 +2,7 @@ import React from "react";
 
 function Team() {
   return (
-    <div>
+    <div className="h-screen">
       <h1>Team</h1>
     </div>
   );

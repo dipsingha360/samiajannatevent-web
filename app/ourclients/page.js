@@ -2,7 +2,7 @@ import React from "react";
 
 function OurClients() {
   return (
-    <div>
+    <div className="h-screen">
       <h1>clients</h1>
     </div>
   );

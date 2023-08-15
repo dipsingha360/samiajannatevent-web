@@ -119,8 +119,8 @@ function Service() {
                 {service.serviceSubtitle}
               </p>
             </div>
-            <button className="mt-5 bg-yellow-950 px-20 py-2 rounded-lg hover:bg-yellow-900">
-              Details
+            <button className="mt-5 bg-yellow-950 w-[17rem] py-2 rounded-lg hover:bg-yellow-900">
+              View Details
             </button>
           </div>
         ))}

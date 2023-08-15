@@ -7,7 +7,7 @@ function WhyChoseUs() {
       <div className="max-w-[1280px] mx-auto grid gap-12 px-4 lg:px-0 sm:grid-cols-2 ">
         <img
           className="w-[550px] h-[550px] object-cover  py-14"
-          src="https://www.seekpng.com/png/full/402-4023434_why-choose-us-choose-us-clip-art.png"
+          src="https://i.postimg.cc/FRPDfFZz/samiajannatevent-whychoseus.png"
           alt="/"
         />
         <div className="flex flex-col gap-3 justify-center items-start">

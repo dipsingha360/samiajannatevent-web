@@ -115,7 +115,7 @@ function Service() {
               <h2 className="text-lg font-semibold text-yellow-950 truncate w-64">
                 {service.serviceTitle}
               </h2>
-              <p className="text-base font-normal text-yellow-950/80 w-full h-32">
+              <p className="text-base font-normal text-yellow-950/80 w-full  h-32">
                 {service.serviceSubtitle}
               </p>
             </div>

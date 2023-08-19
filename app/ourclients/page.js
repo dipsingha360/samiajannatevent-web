@@ -8,27 +8,17 @@ function OurClients() {
       <div className="about-main flex flex-col md:flex-row gap-8 items-center justify-center mt-10 px-4 flex-wrap">
         <img
           className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
+          src="https://i.postimg.cc/VvPJghjX/logo.png"
           alt="SJEO"
         />
         <img
           className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
+          src="https://i.postimg.cc/VvPJghjX/logo.png"
           alt="SJEO"
         />
         <img
           className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
-          alt="SJEO"
-        />
-        <img
-          className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
-          alt="SJEO"
-        />
-        <img
-          className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
+          src="https://i.postimg.cc/VvPJghjX/logo.png"
           alt="SJEO"
         />
       </div>

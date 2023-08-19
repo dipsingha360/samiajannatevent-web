@@ -1,13 +1,14 @@
+import Link from "next/link";
 import React from "react";
 
-const serviceData = [
+export const serviceData = [
   {
     id: 1,
     serviceTitle: "Events Organizing & Managing",
     serviceSubtitle:
       "This service covers the entire process of planning and hosting a variety of public and private events for social or business purposes.",
     serviceImg:
-      "https://images.pexels.com/photos/7648472/pexels-photo-7648472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceTag: "Organize events, Mange events ",
   },
   {
@@ -119,9 +120,12 @@ function Service() {
                 {service.serviceSubtitle}
               </p>
             </div>
-            <button className="mt-5 bg-yellow-950 w-[17rem] py-2 rounded-lg hover:bg-yellow-900">
+            <Link
+              href={`/services/${service.id}`}
+              className="mt-5 bg-yellow-950 w-[17rem] py-2 rounded-lg hover:bg-yellow-900 text-center"
+            >
               View Details
-            </button>
+            </Link>
           </div>
         ))}
       </div>

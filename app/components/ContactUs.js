@@ -53,10 +53,10 @@ export default function ContactUs() {
           Notify us
         </h1>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
-          <FaPhoneAlt /> +971 50 656 1669
+          <FaPhoneAlt /> <FaWhatsapp /> +971 50 656 1669
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
-          <FaWhatsapp /> +971 54 517 6464
+          <FaPhoneAlt /> <FaWhatsapp /> +971 54 517 6464
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaEnvelope /> samiajannatevent@gmail.com

@@ -3,8 +3,9 @@ import React from "react";
 import { serviceData } from "../page";
 
 function Service({ params }) {
-  console.log(params);
-  console.log(serviceData);
+  // const da = serviceData.map((da) => params.service);
+  // console.log(da);
+  // console.log(params.service);
   return (
     <div className=" mt-28">
       {serviceData.map((data) => (
@@ -19,13 +20,13 @@ function Service({ params }) {
             {params.service == data.id && data.serviceTag}
           </p>
           <img
-            src={params.service == data.id && data.serviceImg}
+            src={params.service == data.id && data.serviceImg2}
             alt=""
             className="img w-[800px] h-[400px] p-3 rounded-3xl object-cover"
           />
 
-          <p className="py-5 text-center">
-            {params.service == data.id && data.serviceSubtitle}
+          <p className="py-5 text-center w-[400px] md:w-[700px] lg:w-[800px] px-4">
+            {params.service == data.id && data.serviceDetails}
           </p>
         </div>
       ))}

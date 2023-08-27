@@ -13,7 +13,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/12882627/pexels-photo-12882627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Organize events, Mange events ",
+    serviceTag: "Organizing events, Manging events ",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/219101/pexels-photo-219101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/5638748/pexels-photo-5638748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Parties, Entertainments ",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/12876497/pexels-photo-12876497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/13644808/pexels-photo-13644808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Weedings, Oraganizing ",
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/3769980/pexels-photo-3769980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/6466235/pexels-photo-6466235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Organizing",
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/3249760/pexels-photo-3249760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Folklore dances",
   },
   {
     id: 7,
@@ -92,7 +92,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/7669132/pexels-photo-7669132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/12955925/pexels-photo-12955925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Picnic organizing",
   },
   {
     id: 8,
@@ -105,7 +105,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/3777017/pexels-photo-3777017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/3777017/pexels-photo-3777017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Organizing",
   },
   {
     id: 9,
@@ -118,7 +118,7 @@ export const serviceData = [
       "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     serviceImg2:
       "https://images.pexels.com/photos/5156686/pexels-photo-5156686.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Art, Music, Organizing ",
   },
   {
     id: 10,
@@ -131,7 +131,7 @@ export const serviceData = [
       "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
     serviceImg2:
       "https://images.pexels.com/photos/7218011/pexels-photo-7218011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    serviceTag: "Parties, Filming on Event ",
+    serviceTag: "Maintenance services",
   },
 ];
 

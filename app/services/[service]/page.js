@@ -3,30 +3,25 @@ import React from "react";
 import { serviceData } from "../page";
 
 function Service({ params }) {
-  // const da = serviceData.map((da) => params.service);
-  // console.log(da);
-  // console.log(params.service);
   return (
     <div className=" mt-28">
-      {serviceData.map((data) => (
+      {serviceData.map((item) => (
         <div
-          key={params.service}
+          key={item.id}
           className="flex flex-col justify-center items-center"
         >
           <h1 className="text-center text-yellow-500 lg:text-6xl text-4xl font-medium">
-            {params.service == data.id && data.serviceTitle}
+            {params.service == item.id && item.serviceTitle}
           </h1>
-          <p className="py-5 text-xl">
-            {params.service == data.id && data.serviceTag}
+          <p className="py-5 font-light text-slate-400">
+            {params.service == item.id && item.serviceTag}
           </p>
-          <img
-            src={params.service == data.id && data.serviceImg2}
-            alt=""
-            className="img w-[800px] h-[400px] p-3 rounded-3xl object-cover"
-          />
-
+          {/* <img
+            src={params.service == item.id && item.serviceImg2}
+            className={`img w-[800px] h-[400px] p-3 rounded-3xl object-cover`}
+          /> */}
           <p className="py-5 text-center w-[400px] md:w-[700px] lg:w-[800px] px-4">
-            {params.service == data.id && data.serviceDetails}
+            {params.service == item.id && item.serviceDetails}
           </p>
         </div>
       ))}

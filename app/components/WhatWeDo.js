@@ -37,7 +37,7 @@ function WhatWeDo() {
         </div>
         <img
           className="w-[550px] h-[550px] object-cover  py-4"
-          src="https://images.pexels.com/photos/7674621/pexels-photo-7674621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://i.postimg.cc/zGwK7fSH/pexels-photo-7674621.jpg"
           alt="What SJEO do"
         />
       </div>

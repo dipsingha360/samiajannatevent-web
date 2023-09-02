@@ -23,8 +23,8 @@ function Team() {
         <div className="about-right">
           <img
             className="w-[550px] h-[550px] object-cover"
-            src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=749&q=80"
-            alt=""
+            src="https://i.postimg.cc/Hn7BkgG0/photo-1517486808906-6ca8b3f04846.jpg"
+            alt="SJEO Team"
           />
         </div>
       </div>

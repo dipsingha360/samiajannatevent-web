@@ -8,7 +8,7 @@ function Welcome() {
       <div className="max-w-[1280px] mx-auto grid gap-12 px-4 lg:px-0 sm:grid-cols-2">
         <img
           className="w-[550px] h-[550px] object-cover  py-4"
-          src="https://images.pexels.com/photos/5638816/pexels-photo-5638816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://i.postimg.cc/GhykBK4Q/pexels-photo-5638816.jpg"
           alt="Welcome to Samia Jannat Event Organizers"
         />
         <div className="flex flex-col gap-3 justify-center items-start">

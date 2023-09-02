@@ -4,15 +4,12 @@ import Navbar from "./components/Navbar";
 import "./globals.css";
 
 export const metadata = {
-  title: "SJE",
-  description: "Samia Jannat Event",
-  link: (
-    <link
-      rel="icon"
-      href="https://i.postimg.cc/Hnxv38xb/samiajannatevent-logo-16x16.png"
-      sizes="any"
-    />
-  ),
+  title: "Samia Jannat Event Organizers",
+  description: "Samia Jannat Event Organizers",
+  icons: {
+    icon: "https://i.postimg.cc/Hnxv38xb/samiajannatevent-logo-16x16.png",
+    apple: "https://i.postimg.cc/tTDmhNXX/samiajannatevent-logo-32x32.png",
+  },
 };
 
 export default function RootLayout({ children }) {

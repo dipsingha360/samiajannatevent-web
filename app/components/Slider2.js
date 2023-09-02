@@ -34,7 +34,7 @@ function Slider2() {
         </h1>
         <p className="w-3/4 sm:font-light sm:text-sm md:text-lg text-center ">
           We are a professional event management company that can handle any
-          type of events:
+          type of events
         </p>
         {/* <Typed
           strings={[

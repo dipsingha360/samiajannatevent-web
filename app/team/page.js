@@ -1,6 +1,9 @@
 import React from "react";
 
 function Team() {
+  const src = {
+    img: "https://i.postimg.cc/Hn7BkgG0/photo-1517486808906-6ca8b3f04846.jpg",
+  };
   return (
     <section className="text-center mt-28 lg:text-6xl text-4xl font-medium lg:h-screen mb-10">
       <h1>Team</h1>
@@ -23,7 +26,7 @@ function Team() {
         <div className="about-right">
           <img
             className="w-[550px] h-[550px] object-cover"
-            src="https://i.postimg.cc/Hn7BkgG0/photo-1517486808906-6ca8b3f04846.jpg"
+            src={src.img}
             alt="SJEO Team"
           />
         </div>

@@ -3,12 +3,15 @@ import Link from "next/link";
 import React from "react";
 
 function Welcome() {
+  const src = {
+    img: "https://i.postimg.cc/GhykBK4Q/pexels-photo-5638816.jpg",
+  };
   return (
     <div className="my-20">
       <div className="max-w-[1280px] mx-auto grid gap-12 px-4 lg:px-0 sm:grid-cols-2">
         <img
           className="w-[550px] h-[550px] object-cover  py-4"
-          src="https://i.postimg.cc/GhykBK4Q/pexels-photo-5638816.jpg"
+          src={src.img}
           alt="Welcome to Samia Jannat Event Organizers"
         />
         <div className="flex flex-col gap-3 justify-center items-start">

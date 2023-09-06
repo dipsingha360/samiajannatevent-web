@@ -4,7 +4,7 @@ import { serviceData } from "../page";
 
 function Service({ params }) {
   return (
-    <div className=" h-screen mt-28">
+    <div className="mt-28 mb-10">
       {serviceData
         .filter((data) => data.id == params.service)
         .map((item) => (

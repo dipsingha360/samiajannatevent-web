@@ -1,6 +1,7 @@
 "use client";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+import ReactWhatsapp from "react-whatsapp";
 
 import {
   FaWhatsapp,
@@ -57,10 +58,22 @@ export default function ContactUs() {
           Notify us
         </h1>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
-          <FaPhoneAlt /> <FaWhatsapp /> +971 50 656 1669
+          <FaPhoneAlt />
+          <ReactWhatsapp
+            className="flex items-center gap-3"
+            number="+971 50 656 1669"
+          >
+            <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
+          </ReactWhatsapp>
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
-          <FaPhoneAlt /> <FaWhatsapp /> +971 54 517 6464
+          <FaPhoneAlt />
+          <ReactWhatsapp
+            className="flex items-center gap-3"
+            number="+971 54 517 6464"
+          >
+            <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
+          </ReactWhatsapp>
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaEnvelope /> samiajannatevent@gmail.com

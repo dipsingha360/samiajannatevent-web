@@ -78,8 +78,9 @@ export const serviceData = [
       "This service specializes in organizing and managing wedding parties.",
     serviceDetails:
       "We help you plan every detail of your big day, from the engagement party to the reception. We assist you with finding the perfect venue, selecting the best vendors, designing the décor, choosing the menu, booking the entertainment, sending the invitations, and coordinating the day-of logistics. We also offer wedding filming and photography services to capture your special moments.",
-    serviceImg: "https://i.postimg.cc/Bny1YLwM/pexels-photo-12876497.jpg",
-    serviceImg2: "https://i.postimg.cc/qRH60frK/pexels-photo-13644808.jpg",
+    serviceImg: "https://i.postimg.cc/fbrX43Tw/Wedding-Parties-Organizing.jpg",
+    serviceImg2:
+      "https://i.postimg.cc/LXwdwLHt/Wedding-Parties-Organizing2.jpg",
     serviceTag: "Weedings, Oraganizing ",
   },
   {

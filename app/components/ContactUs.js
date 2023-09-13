@@ -72,7 +72,7 @@ export default function ContactUs() {
             className="flex items-center gap-3"
             number="+971 54 517 6464"
           >
-            <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
+            <FaWhatsapp className="text-2xl text-green-500" /> +971 54 517 6464
           </ReactWhatsapp>
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">

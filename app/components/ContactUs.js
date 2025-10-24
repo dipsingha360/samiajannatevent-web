@@ -66,7 +66,7 @@ export default function ContactUs() {
             <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
           </ReactWhatsapp>
         </p>
-        <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
+        {/* <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaPhoneAlt />
           <ReactWhatsapp
             className="flex items-center gap-3"
@@ -74,7 +74,7 @@ export default function ContactUs() {
           >
             <FaWhatsapp className="text-2xl text-green-500" /> +971 54 517 6464
           </ReactWhatsapp>
-        </p>
+        </p> */}
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaEnvelope /> samiajannatevent@gmail.com
         </p>

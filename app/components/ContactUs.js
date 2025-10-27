@@ -59,6 +59,12 @@ export default function ContactUs() {
         </h1>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
           <FaPhoneAlt />
+          <p className="flex items-center gap-3" number="+97143457464">
+            <span className="text-2xl text-green-500" /> +97143457464
+          </p>
+        </p>
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
+          <FaPhoneAlt />
           <ReactWhatsapp
             className="flex items-center gap-3"
             number="+971 50 656 1669"
@@ -76,7 +82,7 @@ export default function ContactUs() {
           </ReactWhatsapp>
         </p> */}
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
-          <FaEnvelope /> samiajannatevent@gmail.com
+          <FaEnvelope /> info@samiajannatevent.com
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaMapMarkerAlt /> 4th Floor 413, Adel Ahmed Al Wahedi Building, Al

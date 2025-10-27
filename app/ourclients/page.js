@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 function OurClients() {
   return (
@@ -7,6 +8,11 @@ function OurClients() {
 
       <div className="about-main flex flex-col md:flex-row gap-8 items-center justify-center mt-10 px-4 flex-wrap">
         <div className="flex flex-col gap-4">
+          {/* <Image
+            className="w-52 h-w-52 object-cover hover:scale-105 duration-300 rounded-lg"
+            src={"https://i.postimg.cc/ZnFt2x8t/image.png"}
+            alt="radisson-blu"
+          /> */}
           <img
             className="w-52 h-w-52 object-cover hover:scale-105 duration-300 rounded-lg"
             src="https://i.postimg.cc/ZnFt2x8t/image.png"

@@ -8,30 +8,45 @@ function OurClients() {
 
       <div className="about-main flex flex-col md:flex-row gap-8 items-center justify-center mt-10 px-4 flex-wrap">
         <div className="flex flex-col gap-4">
-          {/* <Image
-            className="w-52 h-w-52 object-cover hover:scale-105 duration-300 rounded-lg"
-            src={"https://i.postimg.cc/ZnFt2x8t/image.png"}
-            alt="radisson-blu"
-          /> */}
           <img
-            className="w-52 h-w-52 object-cover hover:scale-105 duration-300 rounded-lg"
-            src="https://i.postimg.cc/ZnFt2x8t/image.png"
+            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
+            src="https://i.postimg.cc/5yzVGnrg/Radisson_Blu_Hotel_Dubai.jpg"
             alt="radisson-blu"
           />
           <p className="text-base font-light text-gray-400">
-            Hotel Radisson blu
+            Radisson Blu Hotel - Dubai
           </p>
         </div>
-        <img
-          className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://i.postimg.cc/VvPJghjX/logo.png"
-          alt="SJEO"
-        />
-        <img
-          className="w-52 h-w-52 object-cover hover:scale-105 duration-300"
-          src="https://i.postimg.cc/VvPJghjX/logo.png"
-          alt="SJEO"
-        />
+        <div className="flex flex-col gap-4">
+          <img
+            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
+            src="https://i.postimg.cc/qRSrj91X/Shangri_La_Hotel_Dubai.jpg"
+            alt="radisson-blu"
+          />
+          <p className="text-base font-light text-gray-400">
+            Shangri-La Hotel - Dubai
+          </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <img
+            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
+            src="https://i.postimg.cc/909hSJkY/Hyatt_Regency_Dubai.jpg"
+            alt="radisson-blu"
+          />
+          <p className="text-base font-light text-gray-400">
+            Hyatt Regency - Dubai
+          </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <img
+            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
+            src="https://i.postimg.cc/d1pF4z55/Grand_Hyatt_Dubai.jpg"
+            alt="radisson-blu"
+          />
+          <p className="text-base font-light text-gray-400">
+            Grand Hyatt - Dubai
+          </p>
+        </div>
       </div>
     </section>
   );

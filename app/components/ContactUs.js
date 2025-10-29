@@ -2,7 +2,7 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 import ReactWhatsapp from "react-whatsapp";
-
+import { TbMailbox } from "react-icons/tb";
 import {
   FaWhatsapp,
   FaPhoneAlt,
@@ -60,7 +60,7 @@ export default function ContactUs() {
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
           <FaPhoneAlt />
           <p className="flex items-center gap-3" number="+97143457464">
-            <span className="text-2xl text-green-500" /> +97143457464
+            <span className="text-2xl text-green-500" /> +971 4 345 7464
           </p>
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
@@ -71,6 +71,12 @@ export default function ContactUs() {
           >
             <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
           </ReactWhatsapp>
+        </p>
+        <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
+          <TbMailbox />
+          <span className="flex items-center gap-3" number="+971 50 656 1669">
+            P.o.Box No: 252162
+          </span>
         </p>
         {/* <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
           <FaPhoneAlt />

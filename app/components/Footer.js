@@ -9,7 +9,7 @@ import {
 
 function Footer() {
   return (
-    <div className="pt-10 bg-[#1d1d1b] border-t border-yellow-50/30 flex flex-col">
+    <div className="pt-10 px-10 bg-[#1d1d1b] border-t border-yellow-50/30 flex flex-col">
       <div className="max-w-[1280px] container mx-auto px-4 lg:px-0 md:flex items-center justify-between gap-36 text-center md:text-left ">
         <div className="flex flex-col ">
           <h1 className="w-full text-2xl  lg:text-3xl font-bold text-yellow-600">
@@ -78,12 +78,12 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="px-4 mt-10 flex items-center justify-center bg-[#242422] py-5 border-t border-yellow-50/10 ">
-        <p className="text-yellow-50 text-sm md:text-xl font-thin">
+      <div className="w-full px-4 mt-10 flex items-center justify-center  py-5 border-t border-yellow-50/10 ">
+        <p className="text-yellow-50 text-sm md:text-sm font-thin">
           &copy; {new Date().getFullYear()}
           <Link
             href="/"
-            className="text-based md:text-xl text-yellow-500 px-2 font-normal cursor-pointer hover:border-b hover:border-yellow-300"
+            className="text-based md:text-sm text-yellow-500 px-2 font-normal cursor-pointer hover:border-b hover:border-yellow-300"
           >
             Samia Jannat Event Organizers
           </Link>

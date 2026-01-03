@@ -91,8 +91,8 @@ export default function ContactUs() {
           <FaEnvelope /> info@samiajannatevent.com
         </p>
         <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
-          <FaMapMarkerAlt /> 4th Floor 413, Adel Ahmed Al Wahedi Building, Al
-          Murar, Deira, Dubai-U.A.E
+          <FaMapMarkerAlt /> 1st Floor M20, Al Mamzar Building, Hor Al Anz,
+          Dubai-U.A.E
         </p>
       </div>
       <form onSubmit={sendEmail} className="flex flex-col gap-5" ref={formRef}>

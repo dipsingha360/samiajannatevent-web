@@ -1,5 +1,11 @@
-import React from "react";
 import ContactUs from "../components/ContactUs";
+
+export const metadata = {
+  title: "Contact us",
+  description:
+    "Get in touch with Samia Jannat Event Organizers in Hor Al Anz, Dubai by phone, WhatsApp, email or the contact form.",
+  alternates: { canonical: "/contact" },
+};
 
 function Contact() {
   return (
@@ -13,7 +19,6 @@ function Contact() {
       </div>
     </section>
   );
-  r;
 }
 
 export default Contact;

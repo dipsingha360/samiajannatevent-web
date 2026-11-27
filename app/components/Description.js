@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 function Description() {
   return (
@@ -9,11 +8,12 @@ function Description() {
           We focus on providing hospitality staff for banquets and food and
           beverage operations in both the hotel and restaurant industry.
         </p>
-        <button className="btn bg-[#141414] px-14 rounded-md mx-auto py-2 mt-4 font-medium text-white hover:bg-[#3b3205] duration-300 w-full lg:w-44">
-          <Link href="/contact" className=" ">
-            Contact
-          </Link>
-        </button>
+        <Link
+          href="/contact"
+          className="btn block text-center bg-[#141414] px-14 rounded-md mx-auto py-2 mt-4 font-medium text-white hover:bg-[#3b3205] duration-300 w-full lg:w-44"
+        >
+          Contact
+        </Link>
       </div>
     </div>
   );

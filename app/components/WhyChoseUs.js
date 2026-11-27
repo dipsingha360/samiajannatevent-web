@@ -1,19 +1,21 @@
-import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 
 function WhyChoseUs() {
   return (
     <div className="my-20  bg-yellow-500">
       <div className="max-w-[1280px] mx-auto grid gap-12 px-4 lg:px-0 sm:grid-cols-2 ">
-        <img
+        <Image
           className="w-[550px] h-[550px] object-cover  py-14"
-          src="https://i.postimg.cc/FRPDfFZz/samiajannatevent-whychoseus.png"
-          alt="/"
+          src="/images/samiajannatevent-whychoseus.png"
+          width={550}
+          height={550}
+          sizes="(max-width: 640px) 100vw, 550px"
+          alt="Why choose Samia Jannat Event Organizers"
         />
         <div className="flex flex-col gap-3 justify-center items-start">
-          <h1 className="md:text-4xl sm:text-3xl text-2xl text-[#141414] font-bold py-2">
+          <h2 className="md:text-4xl sm:text-3xl text-2xl text-[#141414] font-bold py-2">
             Why Chose Us?
-          </h1>
+          </h2>
           <div className="services flex flex-col gap-4 md:text-lg font-light">
             <div>
               <p className="text-xl font-bold text-yellow-950">Innovations</p>

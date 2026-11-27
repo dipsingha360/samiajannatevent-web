@@ -1,6 +1,4 @@
-"use client";
 import Link from "next/link";
-import React from "react";
 import {
   FaFacebookSquare,
   FaInstagramSquare,
@@ -12,9 +10,9 @@ function Footer() {
     <div className="pt-10 px-10 bg-[#1d1d1b] border-t border-yellow-50/30 flex flex-col">
       <div className="max-w-[1280px] container mx-auto px-4 lg:px-0 md:flex items-center justify-between gap-36 text-center md:text-left ">
         <div className="flex flex-col ">
-          <h1 className="w-full text-2xl  lg:text-3xl font-bold text-yellow-600">
+          <h2 className="w-full text-2xl  lg:text-3xl font-bold text-yellow-600">
             Samia Jannat Event Organizers
-          </h1>
+          </h2>
           <p className="py-4 text-sm font-light w-auto lg:text-base tracking-wide text-yellow-50">
             A one-stop destination for all your event planning and management
             needs. Whether you want to celebrate a birthday, anniversary,
@@ -32,9 +30,9 @@ function Footer() {
         </div>
         <div className="lg:flex lg:justify-between justify-evenly items-center  gap-20 mt-10">
           <div>
-            <h1 className="font-semibold text-yellow-500 uppercase text-xl">
+            <h2 className="font-semibold text-yellow-500 uppercase text-xl">
               Services
-            </h1>
+            </h2>
             <ul>
               <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate  ">
                 Events Organizing & Managing
@@ -55,15 +53,15 @@ function Footer() {
           </div>
 
           <div>
-            <h1 className="font-semibold text-yellow-500 uppercase text-xl font-">
+            <h2 className="font-semibold text-yellow-500 uppercase text-xl">
               Clients
-            </h1>
+            </h2>
             <ul>
               <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Shangri-La hotel
               </li>
               <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Hyatt Regencyy
+                Hyatt Regency
               </li>
               <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
                 Grand Hyatt

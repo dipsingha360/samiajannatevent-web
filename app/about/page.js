@@ -1,4 +1,11 @@
-import React from "react";
+import Image from "next/image";
+
+export const metadata = {
+  title: "About us",
+  description:
+    "Learn about Samia Jannat Event Organizers: tailored event packages, flexible payment plans and free consultations in Dubai.",
+  alternates: { canonical: "/about" },
+};
 
 function About() {
   return (
@@ -21,9 +28,12 @@ function About() {
           </p>
         </div>
         <div className="about-right">
-          <img
-            src="https://i.postimg.cc/wjnM2GX0/samiajannatevent-aboutus.png"
-            alt=""
+          <Image
+            src="/images/samiajannatevent-aboutus.png"
+            width={550}
+            height={550}
+            sizes="(max-width: 768px) 100vw, 550px"
+            alt="Samia Jannat Event Organizers"
           />
         </div>
       </div>

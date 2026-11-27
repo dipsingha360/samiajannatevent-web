@@ -1,8 +1,7 @@
-import React from "react";
 import Link from "next/link";
 
 const src = {
-  img: "https://i.postimg.cc/cCJFynhz/pexels-photo-260922.jpg",
+  img: "/images/pexels-photo-260922.jpg",
 };
 
 function Slider2() {
@@ -19,9 +18,12 @@ function Slider2() {
           We are a professional event management company that can handle any
           type of events
         </p>
-        <button className="btn bg-yellow-500 px-14 rounded-md mx-auto sm:mx-0 py-2 mt-4 font-medium text-yellow-950 hover:bg-yellow-400 duration-300">
-          <Link href="/services">Explore</Link>
-        </button>
+        <Link
+          href="/services"
+          className="btn inline-block text-center bg-yellow-500 px-14 rounded-md mx-auto sm:mx-0 py-2 mt-4 font-medium text-yellow-950 hover:bg-yellow-400 duration-300"
+        >
+          Explore
+        </Link>
       </div>
     </div>
   );

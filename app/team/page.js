@@ -1,8 +1,15 @@
-import React from "react";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Team",
+  description:
+    "Meet the team behind Samia Jannat Event Organizers, a Dubai-based event management company.",
+  alternates: { canonical: "/team" },
+};
 
 function Team() {
   const src = {
-    img: "https://i.postimg.cc/Hn7BkgG0/photo-1517486808906-6ca8b3f04846.jpg",
+    img: "/images/photo-1517486808906-6ca8b3f04846.jpg",
   };
   return (
     <section className="text-center mt-28 lg:text-6xl text-4xl font-medium lg:h-screen mb-10">
@@ -24,10 +31,13 @@ function Team() {
           </p>
         </div>
         <div className="about-right">
-          <img
+          <Image
             className="w-[550px] h-[550px] object-cover"
             src={src.img}
-            alt="SJEO Team"
+            width={550}
+            height={550}
+            sizes="(max-width: 768px) 100vw, 550px"
+            alt="Samia Jannat Event Organizers team"
           />
         </div>
       </div>

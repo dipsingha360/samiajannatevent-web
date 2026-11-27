@@ -1,5 +1,18 @@
-import React from "react";
 import Image from "next/image";
+
+export const metadata = {
+  title: "Our Clients",
+  description:
+    "Hotels in Dubai that trust Samia Jannat Event Organizers, including Radisson Blu, Shangri-La, Hyatt Regency and Grand Hyatt.",
+  alternates: { canonical: "/ourclients" },
+};
+
+const clients = [
+  { name: "Radisson Blu Hotel - Dubai", img: "/images/Radisson_Blu_Hotel_Dubai.jpg" },
+  { name: "Shangri-La Hotel - Dubai", img: "/images/Shangri_La_Hotel_Dubai.jpg" },
+  { name: "Hyatt Regency - Dubai", img: "/images/Hyatt_Regency_Dubai.jpg" },
+  { name: "Grand Hyatt - Dubai", img: "/images/Grand_Hyatt_Dubai.jpg" },
+];
 
 function OurClients() {
   return (
@@ -7,46 +20,19 @@ function OurClients() {
       <h1>Our Clients</h1>
 
       <div className="about-main flex flex-col md:flex-row gap-8 items-center justify-center mt-10 px-4 flex-wrap">
-        <div className="flex flex-col gap-4">
-          <img
-            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
-            src="https://i.postimg.cc/5yzVGnrg/Radisson_Blu_Hotel_Dubai.jpg"
-            alt="radisson-blu"
-          />
-          <p className="text-base font-light text-gray-400">
-            Radisson Blu Hotel - Dubai
-          </p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <img
-            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
-            src="https://i.postimg.cc/qRSrj91X/Shangri_La_Hotel_Dubai.jpg"
-            alt="radisson-blu"
-          />
-          <p className="text-base font-light text-gray-400">
-            Shangri-La Hotel - Dubai
-          </p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <img
-            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
-            src="https://i.postimg.cc/909hSJkY/Hyatt_Regency_Dubai.jpg"
-            alt="radisson-blu"
-          />
-          <p className="text-base font-light text-gray-400">
-            Hyatt Regency - Dubai
-          </p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <img
-            className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
-            src="https://i.postimg.cc/d1pF4z55/Grand_Hyatt_Dubai.jpg"
-            alt="radisson-blu"
-          />
-          <p className="text-base font-light text-gray-400">
-            Grand Hyatt - Dubai
-          </p>
-        </div>
+        {clients.map((client) => (
+          <div key={client.name} className="flex flex-col gap-4">
+            <Image
+              className="w-52 h-32 object-cover hover:scale-105 duration-300 rounded-lg"
+              src={client.img}
+              width={208}
+              height={128}
+              sizes="208px"
+              alt={client.name}
+            />
+            <p className="text-base font-light text-gray-400">{client.name}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

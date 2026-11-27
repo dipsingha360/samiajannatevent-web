@@ -1,6 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind 4 defaults borders to currentColor; keep v3's gray default */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+/* Tailwind 4 buttons use cursor: default; keep v3's pointer */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 html,
 body {
@@ -38,41 +55,11 @@ Navbar .nav-link {
   width: 100%;
 }
 
-/* Slider  */
-.slider {
-  height: calc(100vh - 5rem);
-  width: 500vw;
-  display: flex;
-  transition: 0.5s ease-in-out;
-}
-
+/* Hero */
 .slide {
   width: 100vw;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-/* slide btn  */
-.slide-btn {
-  position: relative;
-}
-
-.slide-btn::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #eab308;
-  border-radius: 9999px;
-  width: 20%;
-  transition: 0.2s ease;
-}
-
-.slide-btn:hover::before {
-  width: 100%;
 }

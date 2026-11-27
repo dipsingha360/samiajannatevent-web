@@ -1,94 +1,122 @@
 import Link from "next/link";
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { WHATSAPP_URL } from "../data/site";
+import { WhatsAppIcon } from "./icons";
+import { getI18n } from "../i18n/server";
+import { Container } from "./ui";
 
-function Footer() {
+// labels are in the dictionary under footer.pages
+const pages = [
+  { href: "/services", key: "services" },
+  { href: "/ourclients", key: "clients" },
+  { href: "/about", key: "about" },
+  { href: "/contact", key: "contact" },
+];
+
+const contacts = [
+  { icon: Phone, value: "+971 4 345 7464", href: "tel:+97143457464" },
+  {
+    icon: WhatsAppIcon,
+    value: "+971 50 656 1669",
+    href: WHATSAPP_URL,
+    external: true,
+  },
+  {
+    icon: Mail,
+    value: "info@samiajannatevent.com",
+    href: "mailto:info@samiajannatevent.com",
+  },
+];
+
+const linkClass = "text-fg-2 transition-colors duration-150 hover:text-fg";
+
+function FooterHeading({ children }) {
+  return <h2 className="text-sm font-medium text-fg">{children}</h2>;
+}
+
+async function Footer() {
+  const { t, href: to } = await getI18n();
+  const f = t.footer;
+
   return (
-    <div className="pt-10 px-10 bg-[#1d1d1b] border-t border-yellow-50/30 flex flex-col">
-      <div className="max-w-[1280px] container mx-auto px-4 lg:px-0 md:flex items-center justify-between gap-36 text-center md:text-left ">
-        <div className="flex flex-col ">
-          <h2 className="w-full text-2xl  lg:text-3xl font-bold text-yellow-600">
-            Samia Jannat Event Organizers
-          </h2>
-          <p className="py-4 text-sm font-light w-auto lg:text-base tracking-wide text-yellow-50">
-            A one-stop destination for all your event planning and management
-            needs. Whether you want to celebrate a birthday, anniversary,
-            graduation, or any other special occasion, we have the expertise and
-            experience to make it memorable and hassle-free. We offer a range of
-            services, from event organizing and managing, to parties and events
-            filming, to parties and entertainment services. Let us handle the
-            details while you enjoy the moment.
+    <footer className="border-t border-fg/8 bg-canvas">
+      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr_1.4fr]">
+        <div>
+          <p className="font-display font-medium text-2xl text-fg">
+            {t.meta.siteName}
           </p>
-          <div className="flex items-center justify-center md:justify-start gap-5">
-            <FaFacebookSquare size={35} />
-            <FaInstagramSquare size={35} />
-            <FaTwitterSquare size={35} />
-          </div>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-fg-2">
+            {f.about}
+          </p>
         </div>
-        <div className="lg:flex lg:justify-between justify-evenly items-center  gap-20 mt-10">
-          <div>
-            <h2 className="font-semibold text-yellow-500 uppercase text-xl">
-              Services
-            </h2>
-            <ul>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate  ">
-                Events Organizing & Managing
-              </li>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Parties & Events Filming
-              </li>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Entertainments Services & Parties
-              </li>
-              <Link
-                href="/services"
-                className="py-2 text-sm  tracking-wider overflow-hidden truncate hover:underline text-yellow-200/70"
-              >
-                See all
-              </Link>
-            </ul>
-          </div>
 
-          <div>
-            <h2 className="font-semibold text-yellow-500 uppercase text-xl">
-              Clients
-            </h2>
-            <ul>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Shangri-La hotel
+        <div>
+          <FooterHeading>{f.company}</FooterHeading>
+          <ul className="mt-4 space-y-3 text-sm">
+            {pages.map((page) => (
+              <li key={page.href}>
+                <Link href={to(page.href)} className={linkClass}>
+                  {f.pages[page.key]}
+                </Link>
               </li>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Hyatt Regency
-              </li>
-              <li className="py-2 text-sm font-light  tracking-wider overflow-hidden truncate ">
-                Grand Hyatt
-              </li>
-              <Link
-                href="/ourclients"
-                className="py-2 text-sm  tracking-wider overflow-hidden truncate hover:underline text-yellow-200/70"
-              >
-                See all
-              </Link>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
+
+        <div>
+          <FooterHeading>{f.services}</FooterHeading>
+          <ul className="mt-4 space-y-3 text-sm">
+            {f.serviceLinks.map((service) => (
+              <li key={service.slug}>
+                <Link href={to(`/services/${service.slug}`)} className={linkClass}>
+                  {service.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={to("/services")} className="text-fg underline decoration-fg/20 underline-offset-4 hover:decoration-fg">
+                {f.allServices}
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <FooterHeading>{f.contact}</FooterHeading>
+          <ul className="mt-4 space-y-3 text-sm">
+            {contacts.map(({ icon: Icon, value, href, external }) => (
+              <li key={value}>
+                <a
+                  href={href}
+                  {...(external && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+                  className={`flex items-center gap-3 ${linkClass}`}
+                >
+                  <Icon size={16} strokeWidth={1.5} aria-hidden="true" className="shrink-0 text-fg-3" />
+                  {/* numbers and the email read left to right in Arabic too */}
+                  <span dir="ltr">{value}</span>
+                </a>
+              </li>
+            ))}
+            <li className="flex gap-3 text-fg-2">
+              <MapPin size={16} strokeWidth={1.5} aria-hidden="true" className="mt-0.5 shrink-0 text-fg-3" />
+              {t.common.address}
+            </li>
+          </ul>
+        </div>
+      </Container>
+
+      <div className="border-t border-fg/8">
+        <Container className="flex flex-col gap-2 py-6 text-xs text-fg-3 sm:flex-row sm:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} {t.meta.siteName}
+          </p>
+          <p>{f.poBox}</p>
+        </Container>
       </div>
-      <div className="w-full px-4 mt-10 flex items-center justify-center  py-5 border-t border-yellow-50/10 ">
-        <p className="text-yellow-50 text-sm md:text-sm font-thin">
-          &copy; {new Date().getFullYear()}
-          <Link
-            href="/"
-            className="text-based md:text-sm text-yellow-500 px-2 font-normal cursor-pointer hover:border-b hover:border-yellow-300"
-          >
-            Samia Jannat Event Organizers
-          </Link>
-          All right reserved
-        </p>
-      </div>
-    </div>
+    </footer>
   );
 }
 

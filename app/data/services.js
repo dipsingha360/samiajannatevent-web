@@ -1,14 +1,18 @@
-export const serviceData = [
+import slugs from "./service-slugs.json";
+import arabic from "./services-ar";
+
+// English text and the images. services-ar.js holds the Arabic text by id
+const services = [
   {
     id: 1,
     serviceTitle: "Banqueting Service",
     serviceSubtitle:
       "The staff prepares the venue before the guests arrive and serves plates of food to guests while removing them as the courses are finished.",
     serviceDetails:
-      "Our staffs get to work long before the guests arrive. They set up tables and chairs, and lay out the tablecloths and place settings. They may set up a beverage station or buffet. Once the guests arrive, the banquet staff serves plates of food to guests, then they remove the plates, as the courses are finished.",
+      "Our staff get to work long before the guests arrive. They set up tables and chairs, and lay out the tablecloths and place settings. They may set up a beverage station or buffet. Once the guests arrive, the banquet staff serves plates of food to guests, then they remove the plates, as the courses are finished.",
     serviceImg: "/images/pexels-photo-2696064.jpg",
     serviceImg2: "/images/pexels-photo-671956.jpg",
-    serviceTag: "Hospitality, Food and beverage ",
+    serviceTag: "Hospitality, Food and beverage",
   },
   {
     id: 2,
@@ -16,22 +20,22 @@ export const serviceData = [
     serviceSubtitle:
       "Food and beverage serving and related workers work as part of a team to improve workflow and customer service.",
     serviceDetails:
-      "Most work as part of a team, helping co-workers to improve workflow and customer service. The job titles of food and beverage serving and related workers vary with where they work and what they do. ",
+      "Most work as part of a team, helping co-workers to improve workflow and customer service. The job titles of food and beverage serving and related workers vary with where they work and what they do.",
     serviceImg: "/images/pexels-photo-1267320.jpg",
     serviceImg2: "/images/pexels-photo-11157601.jpg",
     serviceTag: "Customer service, Food preparation, Kitchen management",
-    point1: "⭐ High-end restaurant",
-    point2: "⭐ Waiter/Waitress & Commis Services.",
-    point3: "⭐ Casual dining restaurant",
-    point4:
-      "⭐ Waiter/Waitress & Commis Services/Semi-self-service/Selfservices",
-    point5:
-      "⭐ Combined food preparation and serving workers, including fast food",
-    point6: "⭐ Counter Attendants",
-    point7: "⭐ Dining room and Cafeteria Attendants and Bartender helpers",
-    point8: "⭐ Food servers- non-Restaurant",
-    point9: "⭐ Hosts and Hostesses",
-    point10: "⭐ All other Important Sections of F&B",
+    points: [
+      "High-end restaurant",
+      "Waiter/Waitress & Commis Services",
+      "Casual dining restaurant",
+      "Waiter/Waitress & Commis Services/Semi-self-service/Self-service",
+      "Combined food preparation and serving workers, including fast food",
+      "Counter Attendants",
+      "Dining room and Cafeteria Attendants and Bartender helpers",
+      "Food servers - non-Restaurant",
+      "Hosts and Hostesses",
+      "All other Important Sections of F&B",
+    ],
   },
   {
     id: 3,
@@ -42,7 +46,7 @@ export const serviceData = [
       "We handle everything from venue selection, budgeting, marketing, catering, entertainment, logistics, security, and more. We have the expertise and experience to make your event a success, whether it is a business convention, a training seminar, a trade show, a ceremony, a party, a concert, or a festival.",
     serviceImg: "/images/pexels-photo-3183172.jpg",
     serviceImg2: "/images/pexels-photo-12882627.jpg",
-    serviceTag: "Event coordination, Manging events ",
+    serviceTag: "Event coordination, Managing events",
   },
   {
     id: 4,
@@ -52,20 +56,19 @@ export const serviceData = [
     serviceDetails:
       "We capture the highlights and memorable moments of your occasion, using high-quality equipment and skilled videographers. We also edit and deliver the footage in your preferred format, whether it is a DVD, a USB drive, or an online link. We can film any type of event, such as weddings, birthdays, anniversaries, graduations, reunions, or corporate events.",
     serviceImg: "/images/pexels-photo-3649407.jpg",
-    serviceTag: "Parties, Filming on Event ",
     serviceImg2: "/images/pexels-photo-2873486.jpg",
-    serviceTag: "Parties, Filming on Event, Photography, Videograhpy",
+    serviceTag: "Parties, Filming on Event, Photography, Videography",
   },
   {
     id: 5,
     serviceTitle: "Parties & Entertainments Services",
     serviceSubtitle:
-      "This service offers a range of entertainment options for your parties and events",
+      "This service offers a range of entertainment options for your parties and events.",
     serviceDetails:
       "We can provide live music, DJs, dancers, comedians, magicians, clowns, face painters, balloon artists, and more. We can also arrange games, activities, prizes, and giveaways for your guests. We cater to all ages and preferences, and we can customize our entertainment packages to suit your theme and budget.",
     serviceImg: "/images/pexels-photo-219101.jpg",
     serviceImg2: "/images/pexels-photo-5638748.jpg",
-    serviceTag: "Parties, Entertainments ",
+    serviceTag: "Parties, Entertainments",
   },
   {
     id: 6,
@@ -75,9 +78,8 @@ export const serviceData = [
     serviceDetails:
       "We help you plan every detail of your big day, from the engagement party to the reception. We assist you with finding the perfect venue, selecting the best vendors, designing the décor, choosing the menu, booking the entertainment, sending the invitations, and coordinating the day-of logistics. We also offer wedding filming and photography services to capture your special moments.",
     serviceImg: "/images/Wedding-Parties-Organizing.jpg",
-    serviceImg2:
-      "/images/Wedding-Parties-Organizing2.jpg",
-    serviceTag: "Weedings, Oraganizing ",
+    serviceImg2: "/images/Wedding-Parties-Organizing2.jpg",
+    serviceTag: "Weddings, Organizing",
   },
   {
     id: 7,
@@ -92,7 +94,7 @@ export const serviceData = [
   },
   {
     id: 8,
-    serviceTitle: "Sout Asia Folklore Dances Performance",
+    serviceTitle: "South Asia Folklore Dances Performance",
     serviceSubtitle:
       "This service showcases the rich and diverse culture of UAE through folklore dances.",
     serviceDetails:
@@ -118,7 +120,7 @@ export const serviceData = [
     serviceSubtitle:
       "This service offers recreational activities for your events and guests.",
     serviceDetails:
-      "We can provide sports equipment rental such as balls, bats,rackets,nets,bicycles,scooters,and more.We can also organize sports tournaments,games,and competitions for your participants.We can also facilitate access to recreational facilities such as gyms,pools,bowling alleys,golf courses,and more.We can also arrange tickets to amusement parks,museums,zoo,and other attractions.",
+      "We can provide sports equipment rental such as balls, bats, rackets, nets, bicycles, scooters, and more. We can also organize sports tournaments, games, and competitions for your participants. We can also facilitate access to recreational facilities such as gyms, pools, bowling alleys, golf courses, and more. We can also arrange tickets to amusement parks, museums, zoos, and other attractions.",
     serviceImg: "/images/pexels-photo-3777017.jpg",
     serviceImg2: "/images/pexels-photo-3777017.jpg",
     serviceTag: "Organizing",
@@ -127,12 +129,12 @@ export const serviceData = [
     id: 11,
     serviceTitle: "Performing Arts & Music Festivals",
     serviceSubtitle:
-      "his service organizes performing arts and music festivals for your events and audiences.",
+      "This service organizes performing arts and music festivals for your events and audiences.",
     serviceDetails:
-      "We can curate a lineup of artists,musicians,singers,dancers,theater groups,and other performers who can showcase their talents and entertain your guests.We can also handle the stage setup,sound system,lighthing,effects,and other technical aspects.We can also promote your festival through various media channels,social platforms,and word-of-mouth.",
+      "We can curate a lineup of artists, musicians, singers, dancers, theater groups, and other performers who can showcase their talents and entertain your guests. We can also handle the stage setup, sound system, lighting, effects, and other technical aspects. We can also promote your festival through various media channels, social platforms, and word-of-mouth.",
     serviceImg: "/images/pexels-photo-1540406.jpg",
     serviceImg2: "/images/pexels-photo-5156686.jpg",
-    serviceTag: "Art, Music, Organizing ",
+    serviceTag: "Art, Music, Organizing",
   },
   {
     id: 12,
@@ -141,9 +143,20 @@ export const serviceData = [
       "We can repair, troubleshoot, and maintain any mechanical devices.",
     serviceDetails:
       "We have qualified technicians who can handle any issues or emergencies that may arise during your events.",
-    serviceImg:
-      "/images/photo-1621905251918-48416bd8575a.jpg",
+    serviceImg: "/images/photo-1621905251918-48416bd8575a.jpg",
     serviceImg2: "/images/pexels-photo-7218011.jpg",
     serviceTag: "Maintenance services",
   },
 ];
+
+// readable URLs; next.config.mjs redirects the old /services/<id> links
+export const serviceData = services.map((service) => ({
+  ...service,
+  slug: slugs[service.id],
+}));
+
+// the services with their text in the given language
+export function getServices(lang) {
+  if (lang !== "ar") return serviceData;
+  return serviceData.map((service) => ({ ...service, ...arabic[service.id] }));
+}

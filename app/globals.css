@@ -1,5 +1,121 @@
 @import "tailwindcss";
 
+/* Colors are named by role. The values below are the dark theme (default);
+   [data-theme="light"] further down swaps the ones that flip.
+   Every text color is at least 4.5:1 on every surface in both themes. */
+@theme {
+  /* surfaces, darkest to lightest in dark mode */
+  --color-canvas: #12110f; /* alternate sections, footer */
+  --color-page: #161513;
+  --color-card: #1c1a18;
+  --color-raised: #262421; /* inputs, secondary buttons */
+  /* text */
+  --color-fg: #efe9de;
+  --color-fg-2: #aaa398;
+  --color-fg-3: #969085;
+  --color-accent: #d4b67d; /* brass used as text, e.g. link hover */
+  --color-positive: #4cc38a;
+  --color-negative: #f2666a;
+  --color-focus: #c9a96e;
+
+  /* fixed in both themes */
+  --color-brass-400: #d4b67d;
+  --color-brass-500: #c9a96e;
+  --color-on-brass: #161513; /* text on brass buttons: 8.2:1 */
+  --color-tile: #efe9de; /* client logo tiles */
+  --color-whatsapp: #25d366; /* brand green, for fills */
+  --color-whatsapp-hover: #4ee08a; /* lighter on hover: 10.9:1 with on-whatsapp */
+  --color-on-whatsapp: #0b141a; /* text and icon on the green: 9.4:1 */
+  --color-whatsapp-fg: #25d366; /* green text: 8.1:1 on its tinted card */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* Light theme: warm paper and linen, same brass */
+[data-theme="light"] {
+  color-scheme: light;
+  --color-canvas: #efe9df;
+  --color-page: #f7f4ee;
+  --color-card: #fdfbf7;
+  --color-raised: #f1ece3;
+  --color-fg: #1f1b16;
+  --color-fg-2: #5e554a;
+  --color-fg-3: #6e6559;
+  --color-accent: #7d5f28;
+  --color-positive: #166534;
+  --color-negative: #c62828;
+  --color-focus: #8a6a2f; /* 3.6:1 on page, above the 3:1 for focus rings */
+  --color-tile: #ffffff;
+  --color-whatsapp-fg: #0b6e36; /* the brand green fails on light; 5.4:1 */
+}
+
+/* Photo banners (home hero, page headers, the navbar over them) stay dark in
+   both themes: they set data-theme="dark" on themselves, which restores the
+   dark values for everything inside. Keep these in sync with @theme above. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-canvas: #12110f;
+  --color-page: #161513;
+  --color-card: #1c1a18;
+  --color-raised: #262421;
+  --color-fg: #efe9de;
+  --color-fg-2: #aaa398;
+  --color-fg-3: #969085;
+  --color-accent: #d4b67d;
+  --color-positive: #4cc38a;
+  --color-negative: #f2666a;
+  --color-focus: #c9a96e;
+  --color-tile: #efe9de;
+  --color-whatsapp-fg: #25d366;
+}
+
+/* light: tweaks for light areas only, so never inside a dark banner */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *):not(:where([data-theme="dark"], [data-theme="dark"] *)));
+
+/* site-light: follows the site-wide choice on <html>, even inside a dark
+   banner (used by the theme toggle's icon) */
+@custom-variant site-light (:root[data-theme="light"] &);
+
+/* next/font exposes these variables on <html> */
+@theme inline {
+  --font-display: var(--font-title), "Gotham", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Arabic pages use the Arabic fonts throughout, Latin letters included.
+   They can't share a stack with the Latin fonts: each next/font family
+   carries an Arial-based fallback face, and Arial draws Arabic too, so
+   Arabic text would never reach a later font. The second selector covers
+   Arabic inside an English page (the language switch).
+   Unlayered, so these win over the font utilities */
+:root:lang(ar) body,
+body [lang="ar"] {
+  font-family: var(--font-body-ar), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Arabic letters join up, so the titles' negative tracking would pull
+   words apart, and the taller letterforms need more line height */
+:root:lang(ar) .font-display {
+  font-family: var(--font-title-ar), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+/* Browser autofill paints its own pale background, which breaks the dark
+   form. Keep the field's colours by delaying that background forever */
+input:autofill,
+textarea:autofill {
+  -webkit-text-fill-color: var(--color-fg);
+  caret-color: var(--color-fg);
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
+}
+
 /* Tailwind 4 defaults borders to currentColor; keep v3's gray default */
 @layer base {
   *,
@@ -19,47 +135,90 @@
   }
 }
 
-html,
-body {
-  overflow-x: hidden;
+@layer base {
+  body {
+    background-color: var(--color-page);
+    color: var(--color-fg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-brass-500);
+    color: var(--color-on-brass);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #141414;
-  color: white;
+/* The one entrance on load: hero content fades and rises */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 
-/* Utilities */
-.space-font {
-  font-family: "Space Grotesk", sans-serif;
+/* Booking steps rise in one after another as the band scrolls into view.
+   Browsers without scroll-driven animations show them as they are. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
 }
 
-Navbar .nav-link {
-  position: relative;
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal-step {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry calc(10% + var(--i, 0) * 10%) entry
+        calc(60% + var(--i, 0) * 10%);
+    }
+  }
 }
 
-.nav-link::after {
-  position: absolute;
-  content: "";
-  width: 0%;
-  height: 1px;
-  background-color: #f0fdfa;
-  left: 50%;
-  bottom: 0;
-  transform: translatex(-50%);
-  transition: 0.3s;
+/* Client logo bar: slow right-to-left loop that pauses on hover or focus */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-.nav-link:hover::after {
-  width: 100%;
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-viewport:hover .marquee-track,
+  .marquee-viewport:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
 }
 
-/* Hero */
-.slide {
-  width: 100vw;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* without motion, show one set of logos that wraps instead */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-viewport {
+    mask-image: none;
+  }
+
+  .marquee-track {
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-track > [aria-hidden="true"] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: enter 400ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 50ms);
+  }
 }

@@ -1,13 +1,17 @@
 "use client";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
-import { TbMailbox } from "react-icons/tb";
 import {
-  FaWhatsapp,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+  ArrowUpRight,
+  CircleAlert,
+  LoaderCircle,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import { WHATSAPP_URL } from "../data/site";
+import { WhatsAppIcon } from "./icons";
+import { Container, SectionHeading } from "./ui";
 
 // EmailJS ids are public by design; abuse is limited by the EmailJS
 // dashboard settings plus the rate limit and honeypot below
@@ -15,16 +19,117 @@ const EMAILJS_SERVICE_ID = "service_6krclun";
 const EMAILJS_TEMPLATE_ID = "template_5ofo6dm";
 const EMAILJS_PUBLIC_KEY = "Cpe9KrTFgWKkcWXBy";
 
-const inputClass =
-  "bg-transparent border text-yellow-50 py-4 px-2 md:px-28 rounded-md border-yellow-50/50 outline-hidden focus:border-yellow-400 duration-300 w-full text-center";
+// WhatsApp is the contact we most want people to use, so it gets its own
+// card above the other details
+const WHATSAPP = {
+  value: "+971 50 656 1669",
+  href: WHATSAPP_URL,
+};
 
-export default function ContactUs() {
+// key: the label in the dictionary. ltr: phone numbers and the email
+// address, which must read left to right inside Arabic text. The office
+// value is the translated address
+const details = [
+  {
+    icon: Phone,
+    key: "phone",
+    value: "+971 4 345 7464",
+    href: "tel:+97143457464",
+    ltr: true,
+  },
+  {
+    icon: Mail,
+    key: "email",
+    value: "info@samiajannatevent.com",
+    href: "mailto:info@samiajannatevent.com",
+    ltr: true,
+  },
+  {
+    icon: MapPin,
+    key: "office",
+    href: "https://www.google.com/maps/search/?api=1&query=Al+Mamzar+Building+Hor+Al+Anz+Dubai",
+    external: true,
+  },
+];
+
+// Field states: default, hover, focus, invalid (red border and message,
+// set after a submit attempt), disabled while sending. Autofill keeps
+// these colours through the rule in globals.css.
+// Borders reach 3:1 against the card in both themes (WCAG non-text contrast)
+const inputClass =
+  "w-full rounded-lg border border-fg/40 light:border-fg/50 bg-raised px-4 py-3 text-[15px] text-fg placeholder:text-fg-3 outline-hidden transition-colors duration-150 hover:border-fg/60 light:hover:border-fg/70 focus:border-focus focus:ring-1 focus:ring-focus aria-invalid:border-negative aria-invalid:focus:ring-negative disabled:cursor-not-allowed disabled:opacity-60";
+
+const labelClass = "mb-2 block text-sm text-fg-2";
+
+// which check failed for each field, using the browser's own validity
+// (noValidate turns off its pop-up, not the checks); "" when the field is fine
+const requiredMessage = {
+  fullname: "nameRequired",
+  email: "emailRequired",
+  message: "messageRequired",
+};
+
+function fieldError(field, t) {
+  if (!field.value.trim()) return t[requiredMessage[field.name]];
+  // the browser accepts "name@gmail", so also ask for a dot in the domain;
+  // a typo there would leave us no way to reply
+  if (
+    field.validity.typeMismatch ||
+    (field.type === "email" && !/@[^\s@]+\.[^\s@]+$/.test(field.value.trim()))
+  ) {
+    return t.emailInvalid;
+  }
+  return "";
+}
+
+// the error under a field, linked to it with aria-describedby
+function FieldError({ id, children }) {
+  if (!children) return null;
+  return (
+    <p id={id} className="mt-2 flex items-start gap-1.5 text-sm text-negative">
+      <CircleAlert size={16} strokeWidth={1.75} aria-hidden="true" className="mt-0.5 shrink-0" />
+      {children}
+    </p>
+  );
+}
+
+const fields = ["fullname", "email", "message"];
+
+// t: the contact strings from the dictionary. isPage: the section opens
+// the Contact page, so its heading is the h1
+export default function ContactUs({
+  t,
+  label = t.label,
+  title = t.title,
+  isPage = false,
+}) {
   const formRef = useRef();
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  // field name -> message; only filled in once someone tries to send
+  const [errors, setErrors] = useState({});
+  const sending = status === "sending";
+
+  // after a failed attempt, each field updates its message as it is fixed
+  const recheck = (e) => {
+    const field = e.target;
+    if (!(field.name in errors)) return;
+    setErrors((current) => ({ ...current, [field.name]: fieldError(field, t) }));
+  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
     const form = formRef.current;
+
+    const found = Object.fromEntries(
+      fields.map((name) => [name, fieldError(form.elements[name], t)])
+    );
+    setErrors(found);
+    const firstInvalid = fields.find((name) => found[name]);
+    if (firstInvalid) {
+      setStatus("idle");
+      form.elements[firstInvalid].focus();
+      return;
+    }
 
     // bots fill every field, people never see this one
     if (form.website.value) {
@@ -41,6 +146,7 @@ export default function ContactUs() {
         limitRate: { id: "contact-form", throttle: 30000 },
       });
       form.reset();
+      setErrors({});
       setStatus("sent");
     } catch (error) {
       console.error("Contact form failed to send", error);
@@ -48,114 +154,202 @@ export default function ContactUs() {
     }
   };
 
-  return (
-    <div
-      className="max-w-[1280px] mx-auto my-20 px-4 lg:px-0 md:flex gap-10 items-start justify-between"
-      id="contact"
-    >
-      <div className="contact-left flex flex-col items-start text-left justify-start gap-5 md:gap-10 mb-5 md:mb-0">
-        <h2 className="text-4xl font-bold uppercase text-yellow-500">
-          Notify us
-        </h2>
-        <a
-          href="tel:+97143457464"
-          className="text-base md:text-xl text-yellow-50 flex gap-4 items-center hover:text-yellow-400"
-        >
-          <FaPhoneAlt /> +971 4 345 7464
-        </a>
-        <a
-          href="https://wa.me/971506561669"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-base md:text-xl text-yellow-50 flex gap-4 items-center hover:text-yellow-400"
-        >
-          <FaWhatsapp className="text-2xl text-green-500" /> +971 50 656 1669
-        </a>
-        <p className="text-base md:text-xl text-yellow-50 flex gap-4 items-center ">
-          <TbMailbox /> P.o.Box No: 252162
-        </p>
-        <a
-          href="mailto:info@samiajannatevent.com"
-          className="text-base md:text-xl text-yellow-50 flex gap-4 items-center hover:text-yellow-400"
-        >
-          <FaEnvelope /> info@samiajannatevent.com
-        </a>
-        <p className="text-base md:text-xl text-yellow-50 flex gap-4  items-center">
-          <FaMapMarkerAlt /> 1st Floor M20, Al Mamzar Building, Hor Al Anz,
-          Dubai-U.A.E
-        </p>
-      </div>
-      <form onSubmit={sendEmail} className="flex flex-col gap-5" ref={formRef}>
-        <div className="form-control overflow-hidden">
-          <input
-            type="text"
-            placeholder="Write your full name"
-            aria-label="Full name"
-            name="fullname"
-            autoComplete="name"
-            required
-            className={inputClass}
+  // On phones the form comes right after the heading, before these details.
+  // Each row is a link; on hover or keyboard focus the row lifts onto a card,
+  // the icon tile turns brass, the value turns accent and an arrow shows.
+  // The negative margin keeps the text aligned with the heading above.
+  // Contrast: accent on card 8.9:1 dark, 5.7:1 light; icon on brass 8.2:1
+  const detailList = (
+    <div className="lg:col-start-1 lg:row-start-2">
+      {/* WhatsApp: tinted green card with a filled tile and a call to action
+          that is always visible. Green text uses whatsapp-fg, which is
+          darker in the light theme (8.1:1 dark, 5.4:1 light) */}
+      <a
+        href={WHATSAPP.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group -mx-3 flex items-center gap-4 rounded-xl border border-whatsapp/35 bg-whatsapp/8 p-3 transition-colors duration-150 hover:border-whatsapp/70 hover:bg-whatsapp/14 focus-visible:border-whatsapp/70 focus-visible:bg-whatsapp/14 light:bg-whatsapp/10 light:hover:bg-whatsapp/18"
+      >
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-whatsapp text-on-whatsapp">
+          <WhatsAppIcon size={20} aria-hidden="true" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-sm text-whatsapp-fg">{t.whatsapp}</span>
+          <span className="mt-0.5 block font-medium text-fg">
+            <span dir="ltr">{WHATSAPP.value}</span>
+          </span>
+        </span>
+        <span className="flex shrink-0 items-center gap-1.5 text-sm font-medium text-whatsapp-fg">
+          <span className="hidden sm:inline">{t.whatsappCta}</span>
+          <ArrowUpRight
+            size={18}
+            strokeWidth={1.75}
+            aria-hidden="true"
+            className="transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5"
           />
-        </div>
+        </span>
+      </a>
 
-        <div className="form-control overflow-hidden">
-          <input
-            type="email"
-            placeholder="Write your email"
-            aria-label="Email"
-            name="email"
-            autoComplete="email"
-            required
-            className={inputClass}
-          />
-        </div>
-
-        <div className="form-control overflow-hidden">
-          <textarea
-            placeholder="Write your message"
-            aria-label="Message"
-            name="message"
-            required
-            rows="1"
-            cols="30"
-            className={`${inputClass} h-32 resize-none`}
-          />
-        </div>
-
-        {/* honeypot */}
-        <input
-          type="text"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-          className="hidden"
-        />
-
-        <div className="form-control overflow-hidden">
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="uppercase text-center text-yellow-950 font-semibold bg-yellow-500 border py-4 px-2 md:px-28 rounded-md border-yellow-50/50 outline-hidden focus:border-yellow-500 hover:bg-yellow-400 duration-300 w-full cursor-pointer disabled:opacity-60 disabled:cursor-wait"
-          >
-            {status === "sending" ? "Sending..." : "Send message"}
-          </button>
-        </div>
-
-        <p role="status" className="text-center min-h-6">
-          {status === "sent" && (
-            <span className="text-green-400">
-              Thank you! Your message has been sent.
-            </span>
-          )}
-          {status === "error" && (
-            <span className="text-red-400">
-              Sorry, your message could not be sent. Please call or email us
-              instead.
-            </span>
-          )}
-        </p>
-      </form>
+      <ul className="-mx-3 mt-4 space-y-1">
+        {details.map(({ icon: Icon, key, value = t.address, href, external, ltr }) => (
+          <li key={key}>
+            <a
+              href={href}
+              {...(external && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
+              className="group flex items-center gap-4 rounded-xl p-3 transition-colors duration-150 hover:bg-card focus-visible:bg-card"
+            >
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-raised text-fg-2 transition-colors duration-150 group-hover:border-brass-500 group-hover:bg-brass-500 group-hover:text-on-brass group-focus-visible:border-brass-500 group-focus-visible:bg-brass-500 group-focus-visible:text-on-brass">
+                <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm text-fg-2">{t[key]}</span>
+                <span className="mt-0.5 block text-fg transition-colors duration-150 group-hover:text-accent group-focus-visible:text-accent">
+                  {ltr ? <span dir="ltr">{value}</span> : value}
+                </span>
+              </span>
+              <ArrowUpRight
+                size={18}
+                strokeWidth={1.5}
+                aria-hidden="true"
+                className="shrink-0 text-accent opacity-0 transition-[opacity,translate] duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:opacity-100 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
+  );
+
+  return (
+    <section
+      id="contact"
+      className={
+        isPage
+          ? "pt-28 pb-24 md:pt-36 md:pb-32"
+          : "border-t border-fg/8 py-24 md:py-32"
+      }
+    >
+      <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr] lg:gap-x-20">
+        <div className="lg:col-start-1 lg:row-start-1">
+          <SectionHeading
+            label={label}
+            title={title}
+            as={isPage ? "h1" : "h2"}
+          >
+            {t.body}
+          </SectionHeading>
+        </div>
+
+        <form
+          onSubmit={sendEmail}
+          onInput={recheck}
+          ref={formRef}
+          noValidate
+          aria-busy={sending}
+          className="rounded-2xl border border-fg/8 bg-card p-6 sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start"
+        >
+          {/* disabling the fieldset locks every field while the message sends */}
+          <fieldset disabled={sending} className="min-w-0">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label htmlFor="contact-name" className={labelClass}>
+                  {t.name}
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="fullname"
+                  autoComplete="name"
+                  required
+                  maxLength={100}
+                  aria-invalid={!!errors.fullname}
+                  aria-describedby={errors.fullname ? "contact-name-error" : undefined}
+                  className={inputClass}
+                />
+                <FieldError id="contact-name-error">{errors.fullname}</FieldError>
+              </div>
+              <div>
+                <label htmlFor="contact-email" className={labelClass}>
+                  {t.email}
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                  maxLength={200}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "contact-email-error" : undefined}
+                  className={inputClass}
+                />
+                <FieldError id="contact-email-error">{errors.email}</FieldError>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label htmlFor="contact-message" className={labelClass}>
+                {t.message}
+              </label>
+              <textarea
+                id="contact-message"
+                placeholder={t.placeholder}
+                name="message"
+                required
+                rows={6}
+                maxLength={5000}
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "contact-message-error" : undefined}
+                className={`${inputClass} resize-none`}
+              />
+              <FieldError id="contact-message-error">{errors.message}</FieldError>
+            </div>
+
+            {/* honeypot */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
+            <button
+              type="submit"
+              className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brass-500 px-5 text-[15px] font-medium text-on-brass transition-[background-color,scale] duration-150 ease-out hover:bg-brass-400 active:scale-[0.98] disabled:cursor-wait disabled:opacity-70 disabled:active:scale-100"
+            >
+              {sending && (
+                <LoaderCircle
+                  size={18}
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                  className="animate-spin motion-reduce:animate-none"
+                />
+              )}
+              {sending ? t.sending : t.send}
+            </button>
+          </fieldset>
+
+          <p role="status" className="mt-4 min-h-5 text-center text-sm">
+            {status === "sent" && (
+              <span className="text-positive">
+                {t.sent}
+              </span>
+            )}
+            {status === "error" && (
+              <span className="text-negative">
+                {t.error}
+              </span>
+            )}
+          </p>
+        </form>
+
+        {detailList}
+      </Container>
+    </section>
   );
 }

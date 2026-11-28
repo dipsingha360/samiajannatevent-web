@@ -132,7 +132,9 @@ const en = {
     whatsappCta: "Message us",
     email: "Email",
     office: "Office",
-    address: "1st Floor M20, Al Mamzar Building, Hor Al Anz, Dubai",
+    officeValue: "1st Floor M20, Al Mamzar Building, Hor Al Anz, Dubai",
+    poBox: "Post office box",
+    poBoxValue: "252162, Dubai",
     name: "Full name",
     message: "Your event",
     placeholder: "Date, venue, number of guests, services you need",
@@ -172,7 +174,6 @@ const en = {
       { slug: "wedding-planning", label: "Wedding parties" },
     ],
     allServices: "All services",
-    poBox: "P.O. Box 252162, Dubai",
   },
 
   about: {

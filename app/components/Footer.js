@@ -109,11 +109,10 @@ async function Footer() {
       </Container>
 
       <div className="border-t border-fg/8">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-fg-3 sm:flex-row sm:justify-between">
+        <Container className="py-6 text-xs text-fg-3">
           <p>
             &copy; {new Date().getFullYear()} {t.meta.siteName}
           </p>
-          <p>{f.poBox}</p>
         </Container>
       </div>
     </footer>

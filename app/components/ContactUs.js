@@ -6,6 +6,7 @@ import {
   CircleAlert,
   LoaderCircle,
   Mail,
+  Mailbox,
   MapPin,
   Phone,
 } from "lucide-react";
@@ -28,7 +29,7 @@ const WHATSAPP = {
 
 // key: the label in the dictionary. ltr: phone numbers and the email
 // address, which must read left to right inside Arabic text. The office
-// value is the translated address
+// value is the translated address. Without href the row is plain text
 const details = [
   {
     icon: Phone,
@@ -50,6 +51,7 @@ const details = [
     href: "https://www.google.com/maps/search/?api=1&query=Al+Mamzar+Building+Hor+Al+Anz+Dubai",
     external: true,
   },
+  { icon: Mailbox, key: "poBox" },
 ];
 
 // Field states: default, hover, focus, invalid (red border and message,
@@ -191,34 +193,39 @@ export default function ContactUs({
       </a>
 
       <ul className="-mx-3 mt-4 space-y-1">
-        {details.map(({ icon: Icon, key, value = t.address, href, external, ltr }) => (
+        {details.map(({ icon: Icon, key, value = t[`${key}Value`], href, external, ltr }) => {
+          const Row = href ? "a" : "div";
+          return (
           <li key={key}>
-            <a
+            <Row
               href={href}
               {...(external && {
                 target: "_blank",
                 rel: "noopener noreferrer",
               })}
-              className="group flex items-center gap-4 rounded-xl p-3 transition-colors duration-150 hover:bg-card focus-visible:bg-card"
+              className={`group flex items-center gap-4 rounded-xl p-3 ${href ? "transition-colors duration-150 hover:bg-card focus-visible:bg-card" : ""}`}
             >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-raised text-fg-2 transition-colors duration-150 group-hover:border-brass-500 group-hover:bg-brass-500 group-hover:text-on-brass group-focus-visible:border-brass-500 group-focus-visible:bg-brass-500 group-focus-visible:text-on-brass">
+              <span className={`flex size-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-raised text-fg-2 ${href ? "transition-colors duration-150 group-hover:border-brass-500 group-hover:bg-brass-500 group-hover:text-on-brass group-focus-visible:border-brass-500 group-focus-visible:bg-brass-500 group-focus-visible:text-on-brass" : ""}`}>
                 <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm text-fg-2">{t[key]}</span>
-                <span className="mt-0.5 block text-fg transition-colors duration-150 group-hover:text-accent group-focus-visible:text-accent">
+                <span className={`mt-0.5 block text-fg ${href ? "transition-colors duration-150 group-hover:text-accent group-focus-visible:text-accent" : ""}`}>
                   {ltr ? <span dir="ltr">{value}</span> : value}
                 </span>
               </span>
-              <ArrowUpRight
-                size={18}
-                strokeWidth={1.5}
-                aria-hidden="true"
-                className="shrink-0 text-accent opacity-0 transition-[opacity,translate] duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:opacity-100 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5"
-              />
-            </a>
+              {href && (
+                <ArrowUpRight
+                  size={18}
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                  className="shrink-0 text-accent opacity-0 transition-[opacity,translate] duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:opacity-100 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5"
+                />
+              )}
+            </Row>
           </li>
-        ))}
+          );
+        })}
       </ul>
     </div>
   );
@@ -249,10 +256,12 @@ export default function ContactUs({
           ref={formRef}
           noValidate
           aria-busy={sending}
-          className="rounded-2xl border border-fg/8 bg-card p-6 sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start"
+          className="rounded-2xl border border-fg/8 bg-card p-6 sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:flex lg:flex-col"
         >
-          {/* disabling the fieldset locks every field while the message sends */}
-          <fieldset disabled={sending} className="min-w-0">
+          {/* disabling the fieldset locks every field while the message sends.
+              On desktop the card stretches to the height of the left column
+              and the message box takes up the extra space */}
+          <fieldset disabled={sending} className="min-w-0 lg:flex lg:flex-1 lg:flex-col">
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="contact-name" className={labelClass}>
@@ -290,7 +299,7 @@ export default function ContactUs({
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 lg:flex lg:flex-1 lg:flex-col">
               <label htmlFor="contact-message" className={labelClass}>
                 {t.message}
               </label>
@@ -303,7 +312,7 @@ export default function ContactUs({
                 maxLength={5000}
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? "contact-message-error" : undefined}
-                className={`${inputClass} resize-none`}
+                className={`${inputClass} resize-none lg:flex-1`}
               />
               <FieldError id="contact-message-error">{errors.message}</FieldError>
             </div>

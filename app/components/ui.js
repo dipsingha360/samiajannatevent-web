@@ -3,9 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "../data/site";
 import { WhatsAppIcon } from "./icons";
 
+// Wider side padding from laptop size up; the max width allows for it, so
+// content on large monitors stays 1216px. Navbar repeats these classes
 export function Container({ className = "", children }) {
   return (
-    <div className={`mx-auto w-full max-w-7xl px-5 sm:px-8 ${className}`}>
+    <div className={`mx-auto w-full max-w-[87.5rem] px-5 sm:px-8 lg:px-16 xl:px-[92px] ${className}`}>
       {children}
     </div>
   );

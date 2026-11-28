@@ -63,7 +63,7 @@ function Navbar({ lang, t, themeT }) {
         solid ? "border-fg/8 bg-page" : "border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex h-16 w-full max-w-[87.5rem] items-center justify-between px-5 sm:px-8 lg:px-16 xl:px-[92px]">
         <Link href={to("/")} className="shrink-0">
           <Image
             {...logo}
